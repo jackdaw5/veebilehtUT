@@ -1,0 +1,73 @@
+/* General reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Garamond, serif;
+    color: #e8dede;
+    background-color: #28746e;
+    overflow-x: hidden;
+}
+
+/* Centering the heading */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    color: white;
+}
+
+/* Typing effect styling */
+.typing-heading {
+    font-size: 3rem;
+    border-right: 3px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Content section */
+#content {
+    padding:3em;
+    color: #c8c5c5;
+    display: flex;
+    gap: 20px; /* Space between the two columns */
+    
+}
+
+.sub-group {
+    padding: 60px 0;
+    flex: 1; /* Each column takes up equal space */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between items in each column */
+}
+
+.sub-group h2 {
+    font-size: 2rem;
+    color: #babbbd;
+}
+
+.sub-group p {
+    font-size: 1rem;
+    color: #c8c5c5;
+    margin-top: 10px;
+}
+img{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+footer {
+    text-align: center;
+    align-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
