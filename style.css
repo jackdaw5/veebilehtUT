@@ -10,64 +10,199 @@
 body {
     font-family: Garamond, serif;
     color: #e8dede;
-    background-color: #28746e;
+    background-color: rgb(216, 170, 132);
     overflow-x: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Centering the heading */
+/* Centering the animated heading on the main page */
 header {
+    padding-top: 5%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-
-    color: white;
+    height: 50vh; /* Take half of the viewport height */
+    text-align: center;
 }
 
-/* Typing effect styling */
 .typing-heading {
     font-size: 3rem;
-    border-right: 3px solid white;
+    border-right: 3px solid white; /* Simulates a typing cursor */
     white-space: nowrap;
     overflow: hidden;
+    color: #ffffff;
+    animation: typing 4s steps(40, end), blink 0.5s step-end infinite alternate;
 }
 
-/* Content section */
+/* Typing animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    from {
+        border-color: transparent;
+    }
+    to {
+        border-color: white;
+    }
+}
+
+/* Content Section */
 #content {
-    padding:3em;
-    color: #c8c5c5;
     display: flex;
-    gap: 20px; /* Space between the two columns */
-    
+    flex-direction: column; /* Align sub-groups vertically */
+    align-items: center; /* Center horizontally */
+    gap: 40px; /* Space between sub-groups */
+    padding: 2rem 1rem;
+    text-align: center;
 }
 
 .sub-group {
-    padding: 60px 0;
-    flex: 1; /* Each column takes up equal space */
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Space between items in each column */
+    width: 80%; /* Makes the sub-groups take 80% of the container width */
+    max-width: 600px; /* Ensures it doesn’t stretch too far on large screens */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sub-group h2 {
-    font-size: 2rem;
-    color: #babbbd;
+    font-size: 1.8rem;
+    color: #f1ebdc;
+    margin-bottom: 10px;
 }
 
 .sub-group p {
     font-size: 1rem;
-    color: #c8c5c5;
-    margin-top: 10px;
-}
-img{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    
+    color: #f1e3d3;
+    margin-bottom: 15px;
 }
 
+.sub-group a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: rgb(56, 56, 56);
+    font-weight: bold;
+    background-color: rgb(215, 189, 166);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sub-group a:hover {
+    background-color: rgb(200, 170, 150);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sub-group:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Päis Section (From second page) */
+.Päis {
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.Päis img {
+    width: 100%;
+    height: 300px;
+}
+
+.Päis:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgb(175, 152, 152), rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgb(175, 152, 152));
+    pointer-events: none;
+}
+
+/* Center the h3 inside .Päis */
+h3 {
+    position: absolute;
+    z-index: 10;
+    font-family: cursive;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the h3 */
+}
+
+/* Lingid Section */
+.Lingid {
+    display: flex;
+    flex-wrap: wrap; /* Wrap items to new row if needed */
+    justify-content: center; /* Center the items horizontally */
+    gap: 20px; /* Space between each bubble */
+    padding: 20px;
+}
+
+.Link {
+    background-color: rgb(215, 189, 166);
+    border: 2px solid;
+    border-radius: 20px; /* Rounded edges */
+    border-color: rgb(76, 43, 8);
+    padding: 20px;
+    width: 200px; /* Fixed width for consistent bubbles */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Link:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.Link a {
+    display: block;
+    font-family: fantasy;
+    color: rgb(56, 56, 56);
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.Link p {
+    font-family: Monospace;
+    color: rgb(76, 43, 8);
+}
+
+/* Footer Styling */
 footer {
     text-align: center;
-    align-content: center;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding: 20px;
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+footer img {
+    display: block;
+    margin: 0 auto 10px;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #e8dede;
 }
